@@ -1,0 +1,15 @@
+[abstract\:entity] {
+  /* stroke: red !important;
+    color: red; */
+}
+[abstract\:entity="gaze"] circle {
+  display: none;
+}
+html[router\:current-page="/about/"] [abstract\:entity="gaze"] {
+}
+html[router\:current-page="/about/"] [abstract\:entity="gaze"] circle {
+  display: initial;
+  transition: transform 1125ms;
+  transition-timing-function: cubic-bezier(0.95, 0, 0.95, 1.55);
+  /* filter: blur(4px); */
+}

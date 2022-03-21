@@ -22,8 +22,14 @@ a {
   color: hsl(var(--blk, 0 0% 0%) / var(--t-opacity, 1));
 }
 img,
-svg {
+svg,
+video {
   display: block;
+  width: 100%;
+  height: 100%;
+}
+img {
+  border-radius: 2px;
 }
 button {
   border-radius: 0.25em;
@@ -33,4 +39,3 @@ button {
   border-color: currentColor;
   background-color: transparent;
 }
-

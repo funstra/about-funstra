@@ -10,10 +10,11 @@ module.exports = eleventyConfig => {
   eleventyConfig.addPassthroughCopy("./src/client/js/");
   eleventyConfig.addPassthroughCopy("./src/assets/fonts");
   eleventyConfig.addPassthroughCopy("./src/assets/img");
+  eleventyConfig.addPassthroughCopy("./src/assets/vid");
 
   eleventyConfig.addPlugin(require("@11ty/eleventy-plugin-vite"));
   if (process.env.NODE_ENV == "production") {
-    eleventyConfig.addTransform("htmlmin", htmlmin);
+    // eleventyConfig.addTransform("htmlmin", htmlmin);
   }
 
   return {

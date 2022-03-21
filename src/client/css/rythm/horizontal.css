@@ -1,4 +1,5 @@
 .horizontal {
   /* display: flex; */
-  gap: calc(var(--h-space, 0.5em) * var(--space-mult, 1));
+  --space-mult: 0;
+  gap: calc(var(--h-space, 0.5em) * var(--space-mult));
 }

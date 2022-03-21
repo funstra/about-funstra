@@ -1,6 +1,6 @@
 <div
   class="{{'horizontal' if not ishome else ''}} "
-  style="flex-wrap: wrap"
+  style="flex-wrap: wrap; --space-mult: 1; position: relative"
   data-page="{{'/' if ishome else ''}}"
 >
   <main
@@ -9,6 +9,33 @@
     style="flex-grow: 1; flex-basis: min(50rem, 90%)"
   >
     {{ content | safe }}
+    <svg
+      width="100%"
+      height="100%"
+      viewBox="0 0 100% 100%"
+      preserveAspectRatio="xMidYMid"
+      style="
+        pointer-events: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        mix-blend-mode: exclusion;
+        z-index: 10;
+      "
+      abstract:entity="gaze"
+    >
+      <!-- <line x1="50%" y1="50%" x2="50%" y2="50%" stroke-width="4" stroke="black" /> -->
+      <path
+        d="
+  M512,512
+  A1,1 0 0 0 512,512
+  "
+        fill="transparent"
+        stroke="black"
+        stroke-width="4"
+      />
+      <!-- <circle stroke="transparent" cx="0" cy="0" r="4" fill="white"/> -->
+    </svg>
   </main>
   {% if not ishome %}
   <div
@@ -22,10 +49,14 @@
       left: 0;
       height: 100%;
       order: 1;
-
     "
   >
-    <svg width="100%" height="100%" viewBox="0 0 1024 100%" preserveAspectRatio="xMidYMid">
+    <svg
+      width="100%"
+      height="100%"
+      viewBox="0 0 1024 100%"
+      preserveAspectRatio="xMidYMid"
+    >
       <rect width="100%" height="100%" fill="hsl(var(--blk))" rx="5" />
       <circle cx="50%" cy="50%" r="5%" fill="hsl(var(--wht))" />
     </svg>

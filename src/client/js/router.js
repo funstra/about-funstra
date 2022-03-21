@@ -1,5 +1,9 @@
 import zip from "./zip.js";
 
+/*
+  TODO abstract this, use [router:] attributes, example -> router:route="base/section" ( this is the layout ), router:part="work" ( this could be part of a page that uses the same layout as another )
+ */
+
 // Fetch html string and return a new html document
 /**
  * @param {string} href
@@ -42,9 +46,7 @@ const routerResource = doc => {
  * @returns {Promise<[{elm:HTMLElement,val:String},{elm:HTMLElement,val:String}]>}
  */
 const diffPage = async destination => {
-  const [destrouters, srcrouters] = [destination, document].map(
-    routerAttr
-  );
+  const [destrouters, srcrouters] = [destination, document].map(routerAttr);
   const zipedrouters = zip(destrouters, srcrouters);
   for (const [dest, src] of zipedrouters) {
     if (dest.val !== src.val) {
@@ -53,7 +55,6 @@ const diffPage = async destination => {
   }
   return [null, null];
 };
-
 
 // TODO abstract this
 /**
@@ -66,7 +67,6 @@ const preFetchDOMResources = async (dom, selectorString) => {
   console.log(resources);
   return Promise.all([...resources].map(async src => fetch(src.src)));
 };
-
 
 // sets the page
 /**
@@ -87,9 +87,7 @@ const setPage = async target => {
   const destinationDocument = await getHTML(href);
   const [dest, src] = await diffPage(destinationDocument.page);
   const resources = [...routerResource(destinationDocument.page)];
-  resources.forEach(reSrc => {
-    import(reSrc.elm.src);
-  });
+
   document.documentElement.classList.add("time-out");
 
   src.elm.classList.add("slideOut");
@@ -107,14 +105,20 @@ const setPage = async target => {
     document.documentElement.classList.remove("time-out");
   }, pageTransitionDuration);
 
-  src.elm.parentElement.appendChild(dest.elm);
+  src.elm.parentElement.prepend(dest.elm);
   document.querySelector("main").scrollTo({
     top: 0,
   });
   document.documentElement.setAttribute("router:current-page", pathname);
   document.querySelector("title").innerHTML = destinationDocument.title;
 
-  return true;
+  return await resources;
+};
+
+const imports = path => {
+  if (path === "/works/") {
+    import("./scroll-animation.js");
+  }
 };
 
 // listen for anchor clicks
@@ -129,6 +133,13 @@ document.addEventListener("click", async e => {
     e.preventDefault();
     history.pushState({}, null, target.pathname);
     await setPage(target);
+    imports(target.pathname);
+    // importMap.get(target.pathname)?.forEach(imp => import(imp));
+
+    // window.getComputedStyle(document.documentElement);
+    // reSrc.forEach(s => import(s.elm.src));
+
+    // console.log(target.pathname);
     dispatchEvent(
       new CustomEvent("router:nav", {
         bubbles: true,

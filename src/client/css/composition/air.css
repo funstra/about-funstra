@@ -4,6 +4,7 @@
   flex-grow: 1;
   overflow: hidden;
   /* min-height: 100%; */
+
 }
 main[data-page] {
   /* background-color: wheat; */

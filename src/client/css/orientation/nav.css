@@ -6,7 +6,7 @@
     border-right-style: none !important;
     padding-inline-end: 0 !important;
     padding-block-end: 1rem;
-    border-bottom-style: solid;
+    border-bottom-style: dashed;
   }
   body > header nav ol {
     margin-left: auto;

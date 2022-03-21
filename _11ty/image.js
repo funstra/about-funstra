@@ -1,6 +1,6 @@
 const Image = require("@11ty/eleventy-img");
 module.exports = function (dir, name, alt) {
-  const src = `./assets/img/${dir}${
+  const src = `./src/assets/${dir}${
     dir ? "/" : ""
   }${name}`.toLocaleLowerCase();
   const opt = {
@@ -11,6 +11,7 @@ module.exports = function (dir, name, alt) {
         src.lastIndexOf(".")
       )}-${width}.${format}`;
     },
+    formats: ['jpeg'],
     urlPath: "/assets/img/" + dir,
     outputDir: "./_site/assets/img/" + dir,
   };
