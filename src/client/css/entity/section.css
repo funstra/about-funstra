@@ -1,0 +1,6 @@
+main[data-page] {
+  /* padding-bottom: 2rem; */
+}
+[data-page] > div > [data-page] {
+  /* padding-bottom: 2rem; */
+}

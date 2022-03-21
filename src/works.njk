@@ -1,0 +1,23 @@
+---
+layout: base
+tags: prefetch
+---
+
+<article data-page="works" style="width: min(45rem, 100%); margin: 0 auto">
+  <ol class="works | vertical" style="">
+    {% for work in range(0, 8) %}
+    <li style="height: 100%; flex-shrink: 0;">
+      <article>
+        <h2>Cool thing done</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui nam
+          tempore atque ipsa magnam repellendus?
+        </p>
+        <q>Lorem ipsum dolor sit amet.</q>
+        <button>more!</button>
+      </article>
+    </li>
+
+    {% endfor %}
+  </ol>
+</article>

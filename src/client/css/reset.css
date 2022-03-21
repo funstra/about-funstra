@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  line-height: 1.5;
+}
+h1,
+h2,
+h3,
+h4,
+figcaption {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+
+a {
+  color: hsl(var(--blk, 0 0% 0%) / var(--t-opacity, 1));
+}
+img,
+svg {
+  display: block;
+}
+button {
+  border-radius: 0.25em;
+  border-style: solid;
+  padding-inline: 0.25ch;
+  padding-bottom: 0.25ex;
+  border-color: currentColor;
+  background-color: transparent;
+}
+

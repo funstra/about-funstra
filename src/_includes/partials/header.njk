@@ -1,0 +1,32 @@
+<header style="position: relative;;border-color: hsl(var(--blk) / 0.0625); border-width: 2px;border-right-style: dashed;padding-inline-end: 1rem; display: flex; flex-direction: column;">
+    <nav>
+        <ol>
+            <li>
+                <a href="/" {{"aria-current=page" if page.url == '/' else ''}}>home</a>
+            </li>
+            <li>
+                <a href="/about/" {{"aria-current=page" if page.url == '/about/' else ''}}>about</a>
+            </li>
+            <li>
+                <a href="/works/" {{"aria-current=page" if page.url == '/works/' else ''}}>works</a>
+            </li>
+        </ol>
+    </nav>
+    <div class="socials" style="margin-top: auto; ">
+        <ol>
+            <li>
+                <a href="https://github.com/funstra" target="_blank">github</a>
+            </li>
+            <li>
+                <a href="https://codepen.io/funstra" target="_blank">codepen</a>
+            </li>
+        </ol>
+    </div>
+    <svg style="pointer-events: none;position: absolute;" width="100%" height="100%" viewBox="0 0 1024 1024" preserveAspectRatio="xMidYMin">
+        <defs>
+            <pattern viewBox="0 0 16 16">
+                <line x1="0" x2="16" y1="0" y2="16" />
+            </pattern>
+        </defs>
+    </svg>
+</header>

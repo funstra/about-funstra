@@ -1,0 +1,43 @@
+:root {
+  --page-transition-duration: 0.25s;
+}
+
+[data-page] {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.slideIn,
+.slideOut {
+  animation-duration: var(--page-transition-duration);
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+.slideIn {
+  animation-name: slideIn;
+  animation-timing-function: cubic-bezier();
+}
+.slideOut {
+  animation-timing-function: ease-in;
+  animation-duration: calc(var(--page-transition-duration) / 2);
+  animation-name: slideOut;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(5%);
+    opacity: 0;
+  }
+}
+@keyframes slideOut {
+  20% {
+    opacity: 0.2;
+    transform: translateY(1%);
+  }
+  100% {
+    transform: translateY(5%);
+    /* transform: translateY(-50%); */
+    opacity: 0;
+  }
+}

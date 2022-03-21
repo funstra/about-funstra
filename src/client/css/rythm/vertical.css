@@ -1,0 +1,13 @@
+article :is(h1, h2, h3, h4) {
+  margin-bottom: 1.5em;
+}
+article :is(p, li, div, figure) {
+  margin-bottom: 1em;
+}
+a {
+  line-height: 1;
+}
+
+.vertical {
+  gap: var(--v-space, 0.5rem);
+}

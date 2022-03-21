@@ -1,0 +1,75 @@
+<div
+  class="{{'horizontal' if not ishome else ''}} "
+  style="flex-wrap: wrap"
+  data-page="{{'/' if ishome else ''}}"
+>
+  <main
+    class="{ inset }"
+    p:wrapper
+    style="flex-grow: 1; flex-basis: min(50rem, 90%)"
+  >
+    {{ content | safe }}
+  </main>
+  {% if not ishome %}
+  <div
+    data-abstraction=""
+    style="
+      align-self: flex-start;
+      flex-basis: 200px;
+      flex-grow: 2;
+      position: sticky;
+      top: 0;
+      left: 0;
+      height: 100%;
+      order: 1;
+
+    "
+  >
+    <svg width="100%" height="100%" viewBox="0 0 1024 100%" preserveAspectRatio="xMidYMid">
+      <rect width="100%" height="100%" fill="hsl(var(--blk))" rx="5" />
+      <circle cx="50%" cy="50%" r="5%" fill="hsl(var(--wht))" />
+    </svg>
+  </div>
+  {% endif %}
+</div>
+{#
+<main
+  class="{{'horizontal' if not ishome else ''}} "
+  style="flex-wrap: wrap"
+  data-page="{{'/' if ishome else ''}}"
+>
+  <div
+    class="{ inset }"
+    p:wrapper
+    style="height: auto; flex-grow: 1; flex-basis: min(50rem, 90%)"
+  >
+    {{ content | safe }}
+  </div>
+  {% if not ishome %}
+  <div
+    data-abstraction=""
+    style="
+      align-self: flex-start;
+      flex-basis: 0;
+      flex-grow: 2;
+      position: sticky;
+      top: 0;
+      left: 0;
+      height: 100%;
+      order: 1;
+    "
+  >
+    <svg
+      style="--y: 0"
+      width="100%"
+      height="100%"
+      viewBox="0 0 1024 100%"
+      preserveAspectRatio="xMidYMin"
+    >
+      <rect width="100%" height="100%" />
+      <circle cx="50%" cy="var(--y,50%)" r="32" fill="hsl(var(--wht))" />
+    </svg>
+  </div>
+  {% endif %}
+</main>
+#}

@@ -1,0 +1,11 @@
+[data-abstraction] svg {
+  transition: cx 125ms;
+}
+[data-abstraction] svg circle {
+  transition-property: transform;
+  transition-duration: 125ms;
+  transform-origin: center 0px;
+}
+html[router\:current-page="/works/"] [data-abstraction] svg circle {
+  /* transform: translateY(704px) scale(2); */
+}

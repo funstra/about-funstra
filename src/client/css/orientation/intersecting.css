@@ -1,0 +1,8 @@
+.works li {
+  opacity: 0.0625;
+  transition-property: opacity;
+  transition-duration: 725ms;
+}
+li.intersecting {
+  opacity: 1;
+}

@@ -1,0 +1,45 @@
+a[aria-current="page"] {
+  text-decoration-thickness: 4px;
+  transition-delay: 0ms;
+}
+a {
+  text-decoration-thickness: 1px;
+  text-decoration-color: hsl(var(--ter));
+  transition-property: text-decoration-thickness;
+  transition-duration: 200ms;
+  transition-delay: 200ms;
+}
+html:not(.time-out) [aria-current="page"]::before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  /* content: ""; */
+  width: 100%;
+  height: 0.25em;
+  background-color: currentColor;
+}
+
+a {
+  position: relative;
+}
+a::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0;
+  background-color: hsl(var(--ter));
+
+  z-index: -1;
+  transition-property: height;
+  transition-duration: 75ms;
+}
+html.time-out a[aria-current="page"]::after {
+  height: 100%;
+  transition-duration: 175ms;
+}
+html.time-out a[aria-current="page"] {
+  /* color: hsl(var(--wht)); */
+  --t-opacity: 0.75;
+}

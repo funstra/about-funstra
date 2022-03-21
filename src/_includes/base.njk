@@ -1,0 +1,46 @@
+{% set ishome = page.url == '/'%}
+<!DOCTYPE html>
+<html class="" lang="en" router:current-page="{{ page.url }}">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>{{"home" if ishome else page.fileSlug}}</title>
+
+    <link rel="stylesheet" href="/client/css/style.css"/>
+    <script src="/client/js/main.js" type="module"></script>
+    {% if page.url == '/works/' %}
+      <script
+      router:resource
+      src="/client/js/scroll-animation.js"
+      type="module"
+    ></script>
+    {% endif %}
+
+    <link rel="preload" as="font" href="/assets/fonts/scpl.woff2"/>
+    <link rel="preload" as="font" href="/assets/fonts/scpm.woff2"/>
+    <link rel="preload" as="font" href="/assets/fonts/sspb.woff2"/>
+    <link rel="preload" as="font" href="/assets/fonts/sspblk.woff2"/>
+  </head>
+  <body class="horizontal | { }" style="--space-mult: 4">
+    {% include "partials/header.njk" %}
+    <div p:wrapper>{% include "partials/section.njk" %}</div>
+    <script>
+      {%- set prefetch -%}
+      {%- set comma = joiner() -%}
+      {%- for pre in collections.prefetch -%}
+        {{comma()}}"{{pre.url}}"
+      {%- endfor -%}
+      {%- endset -%}
+      document
+        .head
+        .append(...[{{prefetch | safe}}].map(pre => {
+          const link = document.createElement('link')
+          link.rel = 'prefetch'
+          link.href = pre
+          return link
+        }))
+    </script>
+  </body>
+</html>

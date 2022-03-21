@@ -1,0 +1,12 @@
+button:hover {
+  color: hsl(var(--wht));
+  border-color: hsl(var(--blk));
+  background-color: hsl(var(--blk));
+}
+button {
+  transition-property: color, background-color;
+  transition-duration: 75ms;
+  transition-timing-function: ease-out;
+  background-color: hsl(var(--wht));
+  border-color: hsl(var(--blk));
+}

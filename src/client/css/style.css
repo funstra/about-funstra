@@ -1,0 +1,68 @@
+@import "reset.css";
+@import "font.css";
+@import "transition.css";
+
+@import "composition/air.css";
+@import "composition/vertical.css";
+@import "composition/horizontal.css";
+
+@import "rythm/vertical.css";
+@import "rythm/horizontal.css";
+
+@import "orientation/currentpage.css";
+@import "orientation/nav.css";
+@import "orientation/intersecting.css";
+@import "orientation/button.css";
+@import "orientation/abstraction.css";
+
+@import "entity/section.css";
+@import "entity/spotlight.css";
+@import "entity/skugg.css";
+
+html,
+body {
+  height: 100%;
+}
+html {
+  --hue: 40;
+  --blk: var(--hue) 20% 10%;
+  --wht: var(--hue) 15% 97.5%;
+  --ter: calc(var(--hue) + 215) 70% 75%;
+}
+
+body {
+  background-color: hsl(var(--wht));
+
+  color: hsl(var(--blk) / var(--t-opacity, 1));
+  padding: 1rem;
+  overflow: hidden;
+}
+body > * {
+}
+
+body > [p\:wrapper] {
+}
+.inset {
+  box-shadow: 0 0 8px inset hsl(var(--blk) / 0.0625);
+  padding: 1rem;
+  border-radius: 0.25rem;
+}
+[p\:wrapper] > [data-page] {
+  grid-area: stack;
+}
+body > [p\:wrapper] > [data-page] {
+  overflow: hidden;
+}
+main {
+  overflow-y: scroll !important;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  grid-area: stack;
+  scrollbar-width: thin;
+}
+main > * {
+  margin-top: 2rem !important;
+}
+[data-page] {
+}

@@ -1,0 +1,26 @@
+@media screen and (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+  body > header {
+    border-right-style: none !important;
+    padding-inline-end: 0 !important;
+    padding-block-end: 1rem;
+    border-bottom-style: solid;
+  }
+  body > header nav ol {
+    margin-left: auto;
+    width: max-content;
+    display: flex;
+    gap: 0.5em;
+  }
+  main > [data-abstraction] {
+    display: none;
+  }
+  header .socials {
+    display: none;
+  }
+
+  [data-page="about"] figure:first-of-type {
+  }
+}

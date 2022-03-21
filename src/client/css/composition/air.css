@@ -1,0 +1,15 @@
+[p\:wrapper] {
+  display: grid;
+  grid-template-areas: "stack";
+  flex-grow: 1;
+  overflow: hidden;
+  /* min-height: 100%; */
+}
+main[data-page] {
+  /* background-color: wheat; */
+  /* width: min(100ch, 100%); */
+}
+main[data-page] > * {
+  /* width: min(50rem, 100%); */
+  /* margin: 0 auto; */
+}

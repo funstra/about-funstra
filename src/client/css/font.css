@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "SCP";
+  src: url("/assets/fonts/scpl.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "SCP";
+  src: url("/assets/fonts/scpm.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "SSP";
+  src: url("/assets/fonts/sspsb.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SSP";
+  src: url("/assets/fonts/sspblk.woff2") format("woff2");
+  font-weight: 800;
+  font-display: swap;
+}
+
+body {
+  font-family: SCP;
+  font-weight: 500;
+}
+a,
+q {
+  font-weight: 300;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: SSP;
+  font-weight: 800;
+}
+h1 {
+  font-size: clamp();
+}
